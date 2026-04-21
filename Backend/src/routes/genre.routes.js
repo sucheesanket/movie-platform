@@ -1,10 +1,12 @@
 import express from "express"
 import { createGenre,getAllGenre,updateGenre,deleteGenre } from "../controllers/genre.controller.js"
+import { protect, restrictTo } from "../middlewares/auth.js"
+
 
 const router=express.Router()
-router.post("/",createGenre)
 router.get("/",getAllGenre)
-router.put("/:id",updateGenre)
-router.delete("/:id",deleteGenre)
+router.post("/",protect,restrictTo("admin"),createGenre)
+router.put("/:id",protect,restrictTo("admin"),updateGenre)
+router.delete("/:id",protect,restrictTo("admin"),deleteGenre)
 
 export default router
