@@ -72,3 +72,14 @@ export const getReviewsByMovie=asyncHandler(async(req,res)=>{
 
 })
 
+export const getReviewsByUser=asyncHandler(async(req,res)=>{
+    const reviews=await reviewModel.find({user:req.user.id})
+    .populate("movie", "title poster releaseYear")
+    .sort("-createdAt")
+    res.status(200).json({
+        success:true,
+        count:reviews.length,
+        data:reviews,
+    })
+})
+
