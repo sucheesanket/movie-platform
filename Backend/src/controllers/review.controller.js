@@ -5,7 +5,7 @@ import asyncHandler from "../utils/asyncHandler.js";
 
 export const createReview=asyncHandler(async(req,res)=>{
     const {movieId,rating,comment}=req.body;
-    const movie=await movieModel.create(movieId)
+    const movie=await movieModel.findById(movieId)
     if(!movie)
     {
         throw new Apierror(404,"Movie not found")
@@ -61,7 +61,7 @@ export const deleteReview=asyncHandler(async(req,res)=>{
 
 export const getReviewsByMovie=asyncHandler(async(req,res)=>{
     const reviews=await reviewModel.find({movie:req.params.movieId})
-    .populate("user","name avatar")
+    .populate("user","username avatar")
     .sort("-createdAt")
 
     res.status(200).json({

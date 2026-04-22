@@ -24,7 +24,7 @@ export const protect=asyncHandler(async(req,res,next)=>{
 export const restrictTo=(...roles)=>{
     return (req,res,next)=>{
         if(!roles.includes(req.user.role)){
-            throw new Apierror(403,"You do not have permission to perform this action")
+           return next(new Apierror(403,"You do not have permission to perform this action"))  
         }
         next()
     }

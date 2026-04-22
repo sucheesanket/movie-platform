@@ -35,7 +35,7 @@ export const deleteMovie=asyncHandler(async(req,res)=>{
 export const getAllMovies=asyncHandler(async(req,res)=>{
     const {genre,minRating,year,sort,page=1,limit=10}=req.query
     const filter={}
-    if(genre) filter.generes=genre
+    if(genre) filter.genres=genre
     if(year) filter.releaseYear=Number(year)
     if(minRating) filter.averageRating={$gte:Number(minRating)}
 

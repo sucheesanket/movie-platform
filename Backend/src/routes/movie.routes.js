@@ -10,7 +10,7 @@ router.get("/",getAllMovies)
 router.get("/:id",getMovieById)
 
 router.post("/",protect,restrictTo("admin"),createMovie)
-router.put("/:id",protect,restrictTo("admin"),updateMovie)
+router.patch("/:id",protect,restrictTo("admin"),updateMovie)
 router.delete("/:id",protect,restrictTo("admin"),deleteMovie)
 
 export default router

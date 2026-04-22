@@ -3,8 +3,8 @@ import movieModel from "../models/movie.model.js";
 import Apierror from "../utils/apiError.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import generateToken from "../utils/generateToken.js";
-import { application } from "express";
-import { use } from "react";
+
+
 
 
 

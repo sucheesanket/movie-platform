@@ -5,7 +5,7 @@ const router=express.Router()
 router.post("/register",register)
 router.post("/login",login)
 router.get("/get-me",protect,getMe)
-router.put("/update-password",protect,updatePassword)
+router.patch("/update-password",protect,updatePassword)
 
 router.post("/watchlist/:movieId",protect,addToWatchList)
 router.delete("/watchlist/:movieId",protect,removeFromWatchlist)
