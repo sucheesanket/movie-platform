@@ -8,6 +8,9 @@ import actorRoutes from "./routes/actor.routes.js"
 import genreRoutes from "./routes/genre.routes.js"
 import movieRoutes from "./routes/movie.routes.js"
 import authRoutes from "./routes/auth.routes.js"
+import omdbRoutes from "./routes/omdb.routes.js"
+
+
 
 
 
@@ -23,6 +26,7 @@ app.use("/api/reviews",reviewRoutes)
 app.use("/api/genre",genreRoutes)
 app.use("/api/actors",actorRoutes)
 app.use("/api/auth",authRoutes)
+app.use("/api/omdb",omdbRoutes)
 
 app.get("/",(req,res)=>{
     res.json({

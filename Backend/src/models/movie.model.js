@@ -67,6 +67,12 @@ const movieSchema = new mongoose.Schema({
     totalReviews: {
         type: Number,
         default: 0,
+    },
+    imdbId:{
+        type:String,
+        default:"",
+        unique:true,
+        sparse:true,
     }
 },
     { timestamps: true })
